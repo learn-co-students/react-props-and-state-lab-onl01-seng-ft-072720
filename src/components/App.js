@@ -48,8 +48,9 @@ class App extends React.Component {
       })
       this.setState({
         pets: pets
-      }, () => console.log(this.state.pets.find((p) => p.id === petId)).isAdopted)
+      }, () => console.log("Adopted = " + this.state.pets.find((p) => p.id === petId).isAdopted))
     }
+    // , () => console.log(this.state.pets.find((p) => p.id === petId)).isAdopted
 
 
 
