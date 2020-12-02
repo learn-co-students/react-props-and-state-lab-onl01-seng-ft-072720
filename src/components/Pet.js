@@ -8,12 +8,16 @@ class Pet extends React.Component {
     )
   }
 
+  renderGender = () => {
+    return this.props.pet.gender === "male" ? '♀' : '♂';
+  }
+
   render() {
     return (
       <div className="card">
         <div className="content">
           <a className="header">
-            {/*'♀' OR '♂' */}
+            {this.renderGender()}
             {this.props.pet.name}
           </a>
           <div className="meta">
