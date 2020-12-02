@@ -26,25 +26,22 @@ class App extends React.Component {
 
   fetchPets = () => {
     const filter = this.state.filters.type
+    let uri = '/api/pets'
 
-    if (filter === "all") {
-      fetch('/api/pets')
+    if (filter !== "all") {
+      uri += `?type=${filter}`
+    } 
+
+      fetch(uri)
       .then(resp => resp.json())
-      .then((e) => {
-        // debugger
-      })
-    } else {
-      fetch(`/api/pets?type=${filter}`)
-      .then(resp => resp.json())
-      .then((e) => {
-        // debugger
+      .then((petArray) => {
+        this.setState({
+          pets: petArray
+        })
+        console.log(petArray)
       })
     }
-    
-    // debugger;
-    console.log(this.state.filters.type)
-    console.log("you made it!")
-  }
+
 
 
 
